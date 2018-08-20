@@ -28,9 +28,10 @@ class ApiFactory
      *
      * @return Api
      */
-    public static function create($accessToken = '')
+    public static function create($accessToken, $host)
     {
         $client = ClientFactory::create();
+        $client->setHost($host);
         $responseTransformer = new ArrayBodyTransformer();
         $apiExceptionTransformer = new GuzzleTransformer();
 
